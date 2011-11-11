@@ -191,12 +191,20 @@ void dump_stack_and_code(int tfd, int pid, mapinfo *map,
     p = sp - 64;
     p &= ~3;
     if (unwind_depth != 0) {
-        if (unwind_depth < STACK_CONTENT_DEPTH) {
-            end = sp_list[unwind_depth-1];
+        #define MAX_STACK_SIZE 65536				
+        int i;
+
+        /* Checking sp_list, and setting end value to last valid stack pointer */
+        for(i = 1; i < unwind_depth; i++) {
+            if( (sp_list[i] - sp_list[i - 1]) > MAX_STACK_SIZE) {
+                _LOG(tfd, only_in_tombstone, "\nInvalid stack pointer: sp_list[%d]=%08x\n", i, sp_list[i]);
+                break;
+            }
+            if(i == STACK_CONTENT_DEPTH) {
+                break;
+            }
         }
-        else {
-            end = sp_list[STACK_CONTENT_DEPTH-1];
-        }
+        end = sp_list[i-1];
     }
     else {
         end = sp | 0x000000ff;
