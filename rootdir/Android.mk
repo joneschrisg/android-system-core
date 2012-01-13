@@ -40,11 +40,13 @@ ALL_PREBUILT += $(file)
 $(INSTALLED_RAMDISK_TARGET): $(file)
 endif
 
+ifneq ($(TARGET_PROVIDES_UEVENTD_RC),true)
 file := $(TARGET_ROOT_OUT)/ueventd.rc
 $(file) : $(LOCAL_PATH)/ueventd.rc | $(ACP)
 	$(transform-prebuilt-to-target)
 ALL_PREBUILT += $(file)
 $(INSTALLED_RAMDISK_TARGET): $(file)
+endif
 
 # Just like /system/etc/init.goldfish.sh, the /init.godlfish.rc is here
 # to allow -user builds to properly run the dex pre-optimization pass in
