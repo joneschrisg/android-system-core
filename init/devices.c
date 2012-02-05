@@ -410,9 +410,6 @@ static void handle_device_event(struct uevent *uevent)
         } else if (!strncmp(uevent->subsystem, "msm_camera", 10)) {
             base = "/dev/msm_camera/";
             mkdir(base, 0755);
-        } else if (!strncmp(uevent->subsystem, "late_display", 10)) {
-            base = "/dev/late_display/";
-            mkdir(base, 0755);
         } else if(!strncmp(uevent->subsystem, "input", 5)) {
             base = "/dev/input/";
             mkdir(base, 0755);
