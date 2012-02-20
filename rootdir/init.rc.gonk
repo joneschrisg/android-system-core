@@ -319,6 +319,8 @@ service netd /system/bin/netd
 
 service debuggerd /system/bin/debuggerd
 
+service httpd /system/xbin/mongoose -p 7777 -t 3 -r / -m .appcache=text/cache-manifest,.mp4=video/mp4
+
 #service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
 #    socket zygote stream 666
 #    onrestart write /sys/android_power/request_state wake
