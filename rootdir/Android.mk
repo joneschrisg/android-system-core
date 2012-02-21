@@ -5,6 +5,7 @@ include $(CLEAR_VARS)
 
 copy_from := \
 	etc/dbus.conf \
+	etc/httpd.conf \
 	etc/hosts
 
 ifeq ($(TARGET_PRODUCT),generic)
