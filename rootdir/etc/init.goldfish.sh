@@ -45,3 +45,6 @@ esac
 # this line doesn't really do anything useful. however without it the
 # previous setprop doesn't seem to apply for some really odd reason
 setprop ro.qemu.init.completed 1
+
+# setup dns
+setprop net.dns1 10.0.2.3
