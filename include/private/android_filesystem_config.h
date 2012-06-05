@@ -176,6 +176,8 @@ static struct fs_path_config android_files[] = {
     { 00444, AID_RADIO,     AID_AUDIO,     "system/etc/AudioPara4.csv" },
     { 00555, AID_ROOT,      AID_ROOT,      "system/etc/ppp/*" },
     { 00755, AID_ROOT,      AID_ROOT,      "system/b2g/b2g" },
+    { 00755, AID_ROOT,      AID_ROOT,      "system/b2g/plugin-container" },
+    { 00755, AID_ROOT,      AID_ROOT,      "system/b2g/updater" },
     { 00644, AID_SYSTEM,    AID_SYSTEM,    "data/app/*" },
     { 00644, AID_SYSTEM,    AID_SYSTEM,    "data/app-private/*" },
     { 00644, AID_APP,       AID_APP,       "data/data/*" },
